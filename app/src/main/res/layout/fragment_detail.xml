@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/infoCardView"
+                app:cardBackgroundColor="@color/colorPrimary" >
+                <LinearLayout
+                    android:id="@+id/content_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/activity_vertical_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_vertical_margin"
+                    tools:context="app.com.example.android.arxivreader.DetailActivityFragment"
+                    tools:showIn="@layout/activity_detail"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/titleTextView"
+                        style="?android:attr/textAppearanceLarge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/album_title_padding"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/detail_title_text"
+                        android:lineSpacingMultiplier="0.9" />
+
+                    <TextView
+                        android:id="@+id/authorTextView"
+                        style="?android:attr/textAppearanceSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#fff" />
+
+                    <TextView
+                        android:id="@+id/dateTextView"
+                        style="?android:attr/textAppearanceSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#8fff" />
+
+                    <TextView
+                        android:id="@+id/categoryTextView"
+                        style="?android:attr/textAppearanceSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#8fff" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+                <TextView
+                    android:id="@+id/summaryTextView"
+                    style="?android:attr/textAppearanceMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/summary_text_size"
+                    android:layout_marginTop="@dimen/detail_text_top_margin"
+                    android:layout_marginBottom="@dimen/detail_text_bottom_margin"
+                    android:padding="@dimen/album_title_padding"/>
+        </LinearLayout>
+
+    </ScrollView>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_fav_button"
+        android:contentDescription="@string/add_favs_desc"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/favs"
+        android:layout_gravity="bottom|start"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/load_pdf_button"
+        android:contentDescription="@string/pdf_download_desc"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/pdf"
+        android:layout_gravity="bottom|center"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/share_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/share"
+        android:layout_gravity="bottom|end"/>
+
+</android.support.design.widget.CoordinatorLayout>

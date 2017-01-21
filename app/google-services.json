@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "146995633312",
+    "firebase_url": "https://fir-arxivreader.firebaseio.com",
+    "project_id": "firebase-arxivreader",
+    "storage_bucket": "firebase-arxivreader.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146995633312:android:8ed7dbd0a3381ad2",
+        "android_client_info": {
+          "package_name": "app.com.example.android.arxivreader"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146995633312-604jirhle1jtcbttm2661g0n3t3nk0no.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "146995633312-kf57j2as0cplure86rb1ii36sp4sj11l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYqa3HMUCs9DuXCYy2WyDMzRWDrlS2etA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-90436608-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

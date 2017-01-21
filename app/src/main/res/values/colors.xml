@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#00BCD4</color>
+    <color name="viewBg">#f1f5f8</color>
+    <color name="album_title">#4c4c4c</color>
+    <color name="colorCS">#FFCDD2</color>
+    <color name="colorPHY">#E1BEE7</color>
+    <color name="colorSTAT">#FFE0B2</color>
+    <color name="colorMATH">#F0F4C3</color>
+    <color name="colorQBIO">#C8E6C9</color>
+    <color name="colorOTHERS">#D7CCC8</color>
+
+</resources>

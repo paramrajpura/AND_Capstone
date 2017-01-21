@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <string name="ga_trackingId">UA-90436608-1</string>
+    <bool name="ga_autoActivityTracking">true</bool>
+    <screenName name="app.com.example.android.arxivreader.SearchActivity">Search Page</screenName>
+    <screenName name="app.com.example.android.arxivreader.DetailActivity">Details Page</screenName>
+
+</resources>

@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        Myconfig {
+            keyAlias 'MyANDKey'
+            keyPassword 'password'
+            storeFile file('../keystore.jks')
+            storePassword 'password'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+    defaultConfig {
+        applicationId "app.com.example.android.arxivreader"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        signingConfig signingConfigs.Myconfig
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.Myconfig
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile('com.squareup.retrofit2:converter-simplexml:2.1.0') {
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'xpp3', module: 'xpp3'
+    }
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.android.support:cardview-v7:23.4.0'
+    compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile 'com.google.android.gms:play-services-analytics:10.0.1'
+    compile 'com.google.firebase:firebase-messaging:10.0.1'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'net.simonvt.schematic:schematic:0.7.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'net.simonvt.schematic:schematic-compiler:0.7.0'
+}
+apply plugin: 'com.google.gms.google-services'
+
