@@ -4,35 +4,57 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/item">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="3"
-            android:id="@+id/title_text_view" />
+            android:id="@+id/title_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/album_title_padding"
+            android:paddingRight="@dimen/album_title_padding"
+            android:paddingStart="@dimen/album_title_padding"
+            android:paddingEnd="@dimen/album_title_padding"
+            android:paddingTop="@dimen/album_title_padding"
+            style="@style/TitleFont" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:id="@+id/author_text_view" />
+            android:id="@+id/date_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_text_view"
+            android:paddingLeft="@dimen/album_title_padding"
+            android:paddingRight="@dimen/album_title_padding"
+            android:paddingStart="@dimen/album_title_padding"
+            android:paddingEnd="@dimen/album_title_padding"
+            android:textSize="@dimen/songs_count" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:id="@+id/date_text_view" />
+            android:id="@+id/author_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date_text_view"
+            android:paddingLeft="@dimen/album_title_padding"
+            android:paddingRight="@dimen/album_title_padding"
+            android:paddingTop="@dimen/album_title_padding"
+            android:paddingStart="@dimen/album_title_padding"
+            android:paddingEnd="@dimen/album_title_padding"
+            android:textColor="@color/album_title"
+            android:textSize="@dimen/album_title" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:id="@+id/cat_text_view" />
-
-    </LinearLayout>
+            android:id="@+id/cat_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/author_text_view"
+            android:paddingLeft="@dimen/album_title_padding"
+            android:paddingRight="@dimen/album_title_padding"
+            android:paddingStart="@dimen/album_title_padding"
+            android:paddingEnd="@dimen/album_title_padding"
+            android:paddingTop="@dimen/album_title_padding"
+            android:paddingBottom="@dimen/songs_count_padding_bottom"
+            android:textSize="@dimen/songs_count"
+            android:gravity="end"/>
+    </RelativeLayout>
 </LinearLayout>

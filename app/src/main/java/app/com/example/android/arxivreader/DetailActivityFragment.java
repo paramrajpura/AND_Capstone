@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -59,17 +60,18 @@ public class DetailActivityFragment extends Fragment {
         mFavButton = (FloatingActionButton) rootView.findViewById(R.id.add_fav_button);
         mFavButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                saveData();
-                Cursor c = getActivity().getContentResolver().query
-                        (EPaperProvider.EPapers.CONTENT_URI, null, null, null, null);
-//                int count = 0;
+                DataSaveAsync asyncTask = new DataSaveAsync();
+                asyncTask.execute();
+//                Cursor c = getActivity().getContentResolver().query
+//                        (EPaperProvider.EPapers.CONTENT_URI, null, null, null, null);
+////                int count = 0;
+////                if (c != null) {
+////                    count = c.getCount();
+////                }
+//                //Toast.makeText(getContext(),String.valueOf(count),Toast.LENGTH_SHORT).show();
 //                if (c != null) {
-//                    count = c.getCount();
+//                    c.close();
 //                }
-                //Toast.makeText(getContext(),String.valueOf(count),Toast.LENGTH_SHORT).show();
-                if (c != null) {
-                    c.close();
-                }
             }
         });
 
@@ -104,45 +106,62 @@ public class DetailActivityFragment extends Fragment {
         return rootView;
     }
 
-    private void saveData() {
-
-        ContentValues cv = new ContentValues();
-        cv.put(EPaperColumns.TITLE, mData.title);
-        String authors="";
-        int total = mData.authorList.size();
-        for(int itr=0;itr<total;itr++){
-            YourObject.Author tmp = mData.authorList.get(itr);
-            if(itr==total-1){
-                authors = authors + tmp.name;
-            }
-            else{
-                authors = authors + tmp.name + ", ";
-            }
-        }
-        cv.put(EPaperColumns.AUTHORS, authors);
-        cv.put(EPaperColumns.LINK_ID,mData.id);
-        YourObject.Category tmpCat = mData.cat;
-        cv.put(EPaperColumns.CATEGORY, tmpCat.catName);
-        cv.put(EPaperColumns.PUBLISHED_DATE,mData.datePublished);
-        cv.put(EPaperColumns.SUMMARY,mData.description);
-
-
-        Cursor c = getActivity().getContentResolver().query(
-                EPaperProvider.EPapers.withId(mData.title),null, null,null,null);
-        if(c!=null){
-            if (c.getCount() == 0) {
-                getActivity().getContentResolver().insert(EPaperProvider.EPapers.CONTENT_URI
-                        , cv);
-                c.close();
+    private class DataSaveAsync extends AsyncTask<Void, Void, Boolean> {
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+            if(aBoolean){
                 Toast.makeText(getContext(),getString(R.string.add_fav_msg),
                         Toast.LENGTH_SHORT).show();
             }
             else{
-                getActivity().getContentResolver().delete(EPaperProvider.EPapers.withId(
-                        mData.title),null,null);
                 Toast.makeText(getContext(),getString(R.string.del_fav_msg),
                         Toast.LENGTH_SHORT).show();
             }
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            Boolean isAdded =false;
+            ContentValues cv = new ContentValues();
+            cv.put(EPaperColumns.TITLE, mData.title.replaceAll("\\n"," "));
+            String authors="";
+            int total = mData.authorList.size();
+            for(int itr=0;itr<total;itr++){
+                YourObject.Author tmp = mData.authorList.get(itr);
+                if(itr==total-1){
+                    authors = authors + tmp.name;
+                }
+                else{
+                    authors = authors + tmp.name + ", ";
+                }
+            }
+            cv.put(EPaperColumns.AUTHORS, authors);
+            cv.put(EPaperColumns.LINK_ID,mData.id);
+            YourObject.Category tmpCat = mData.cat;
+            cv.put(EPaperColumns.CATEGORY, tmpCat.catName);
+            cv.put(EPaperColumns.PUBLISHED_DATE,mData.datePublished);
+            cv.put(EPaperColumns.SUMMARY,mData.description.replaceAll("\\n"," "));
+
+
+            Cursor c = getActivity().getContentResolver().query(
+                    EPaperProvider.EPapers.withId(mData.title),null, null,null,null);
+            if(c!=null){
+                if (c.getCount() == 0) {
+                    getActivity().getContentResolver().insert(EPaperProvider.EPapers.CONTENT_URI
+                            , cv);
+                    c.close();
+                    isAdded = true;
+
+                }
+                else{
+                    getActivity().getContentResolver().delete(EPaperProvider.EPapers.withId(
+                            mData.title),null,null);
+                    //isAdded = false;
+
+                }
+            }
+            return isAdded;
         }
     }
 

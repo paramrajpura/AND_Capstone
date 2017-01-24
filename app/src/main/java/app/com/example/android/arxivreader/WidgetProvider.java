@@ -9,6 +9,7 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.widget.RemoteViews;
 
 public class WidgetProvider extends AppWidgetProvider {
@@ -31,6 +32,7 @@ public class WidgetProvider extends AppWidgetProvider {
             mView.setOnClickPendingIntent(R.id.widgetLayoutMain, pendingIntent);
 
             appWidgetManager.updateAppWidget(widgetId, mView);
+            appWidgetManager.notifyAppWidgetViewDataChanged(widgetId,R.id.widgetCollectionList);
 
         }
 
@@ -43,6 +45,11 @@ public class WidgetProvider extends AppWidgetProvider {
         RemoteViews mView = new RemoteViews(context.getPackageName(),
                 R.layout.widget_provider_layout);
 
+        Intent intent = new Intent(context, WidgetService.class);
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
+
+        intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
+        mView.setRemoteAdapter(R.id.widgetCollectionList, intent);
         return mView;
     }
 }

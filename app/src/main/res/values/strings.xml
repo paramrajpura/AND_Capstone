@@ -39,6 +39,7 @@
     <string name="pdf_download_desc">Download PDF</string>
     <string name="add_favs_desc">Add to Favorites</string>
     <string name="share_art_desc">Share this E-print link</string>
+    <string name="widget_image_desc">Quick Search Arxiv</string>
 
     <string name="sort_pref">Sort by:</string>
     <string name="cat_pref">Category:</string>

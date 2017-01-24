@@ -11,5 +11,9 @@
     <color name="colorMATH">#F0F4C3</color>
     <color name="colorQBIO">#C8E6C9</color>
     <color name="colorOTHERS">#D7CCC8</color>
+    <color name="colorWidget">#BBDEDFDE</color>
+    <color name="colorWidgetTitle">#4B4B4D</color>
+
+
 
 </resources>
