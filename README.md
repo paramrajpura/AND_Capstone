@@ -26,10 +26,4 @@ Science, Quantitative Biology, Quantitative Finance and Statistics background.
 
 ## Screenshots
 
-![Search Page](./screenshots/searchPage.png)
-
-![Favorites Page](./screenshots/favsPage.png)
-
-![Search Preferences Page](./screenshots/prefsPage.png)
-
-![Details Page](./screenshots/detailPage.png)
+![Search Page](./screenshots/searchPage.png)  ![Favorites Page](./screenshots/favsPage.png)  ![Search Preferences Page](./screenshots/prefsPage.png)  ![Details Page](./screenshots/detailPage.png)
