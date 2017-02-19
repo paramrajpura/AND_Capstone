@@ -22,3 +22,14 @@ Science, Quantitative Biology, Quantitative Finance and Statistics background.
 * Tag favorites to view and search later.
 * Widget for quick access
 * Voice to text for search
+
+
+## Screenshots
+
+![Search Page](./screenshots/searchPage.png)
+
+![Favorites Page](./screenshots/favsPage.png)
+
+![Search Preferences Page](./screenshots/prefsPage.png)
+
+![Details Page](./screenshots/detailPage.png)
